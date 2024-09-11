@@ -1,0 +1,71 @@
+<html>
+	<head>
+	<title>Login page</title>
+		<style>
+				html,body
+				{
+					height: 100%;
+					width: 100%;
+					background-color: black;
+					color: white;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				
+				button{
+					font-size: 15px;
+				}
+				
+				.btn{
+				padding-top: 7px;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-bottom: 7px;
+				}
+				
+				.cbtn{
+				padding-top: 7px;
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-bottom: 7px;
+				}
+				.a{
+				border: 2px solid white;
+				height: 300px;
+				width: 300px;				
+				background-image:url('carbon.jpg');
+				}
+		</style>
+	</head>
+		<body>
+		<div class="a">
+		<form>
+		<h1>Login</h1><br>
+		<center>
+		<label>E-mail:</label>
+			<input type="text" placeholder="Enter name"><br><br>
+			
+			<label>Password:</label>
+			<input type="password" placeholder="password"><br><br>
+			
+			<button class="btn">Login</button><br><br>
+			<button class="cbtn">Cancel</button><br><br>
+				
+				<p>Didn't have an account?</p><a href="signuppage.html">Signup</a>
+			</center>
+		</form>
+		</div>
+				<script src="D:\sem4\wd2\vruu\jquery-jquery-f79d5f1\dist\jquery.min.js"></script>
+				
+				<script>
+				$(document).ready(function()
+				{
+					$('.btn').click(function()
+					{
+						alert("thank you for login");
+					});
+				});
+				</script>
+		</body>
+</html>

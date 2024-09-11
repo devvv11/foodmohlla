@@ -1,0 +1,92 @@
+Imports System.Data.OleDb
+Public Class Form1
+    Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\jogid\Downloads\Devv22.accdb")
+    Dim cmd As New OleDbCommand("select * from Devv22 order by ID", con)
+    Dim dr As OleDbDataReader
+    Dim da As New OleDbDataAdapter
+    Dim cnt As Integer
+    Shared curPos As Integer
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        con.Open()
+        dr = cmd.ExecuteReader()
+        curPos = 0
+        Show_Rec(curPos)
+        con.Close()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        curPos = 0
+        Show_Rec(curPos)
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        If curPos > 0 Then
+            curPos -= 1
+        End If
+        Show_Rec(curPos)
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        If dr.Read() Then
+            curPos += 1
+            Show_Rec(curPos)
+        End If
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        While dr.Read()
+            curPos += 1
+        End While
+        curPos -= 0
+        Show_Rec(curPos)
+    End Sub
+
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        cmd.Connection = con
+        con.Open()
+        cmd.CommandText = "insert into Devv22 values(" & TextBox1.Text & ",'" & TextBox2.Text & "')"
+        da.InsertCommand = cmd
+        cnt = cmd.ExecuteNonQuery
+        MsgBox(cnt & " Insert Succufully")
+        con.Close()
+    End Sub
+
+    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+        cmd.Connection = con
+        con.Open()
+        cmd.CommandText = "update Devv22 set Name='" & TextBox2.Text & "' where ID=" & TextBox1.Text
+        da.InsertCommand = cmd
+        cnt = cmd.ExecuteNonQuery
+        MsgBox(cnt & " Update Succufully")
+        con.Close()
+    End Sub
+
+    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+        cmd.Connection = con
+        con.Open()
+        cmd.CommandText = "delete from Devv22 where ID=" & TextBox1.Text
+        da.InsertCommand = cmd
+        cnt = cmd.ExecuteNonQuery
+        MsgBox(cnt & " Delete Succufully")
+        con.Close()
+    End Sub
+
+    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+        TextBox1.Clear()
+        TextBox2.Clear()
+    End Sub
+    Sub Show_Rec(ByVal pos As Integer)
+        Dim currentPosition As Integer = 0
+        dr.Close()
+        dr = cmd.ExecuteReader()
+        While dr.Read() AndAlso currentPosition < pos
+            currentPosition += 1
+        End While
+        If currentPosition = pos Then
+            TextBox1.Text = dr("ID").ToString()
+            TextBox2.Text = dr("Name").ToString()
+        Else
+            MessageBox.Show("Record not found.")
+        End If
+    End Sub
+End Class

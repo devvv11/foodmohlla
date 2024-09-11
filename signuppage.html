@@ -1,0 +1,78 @@
+<html>
+	<head>
+	<title>Signup</title>
+		<style>
+			html,body{
+			height: 100%;
+			width: 100%;
+			background-color: #363636;
+			color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			}
+			
+			.a{
+			border: 5px solid white;
+			height: 300px;
+			width: 300px;
+			border-radius: 10px;
+			}
+			
+			button{
+				padding-bottom: 7px;
+				padding-top: 7px;
+				padding-left: 10px;
+				padding-right: 10px;
+				border-radius: 14px;
+				transition: 0.3s;
+			}
+			
+			.btn:hover{
+				background-color: green;
+				color: white;
+			}
+			.cbtn:hover{
+				background-color: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<div class="a">
+		<body>
+		<center>
+		<form>
+		<h1>Sign up</h1>
+		
+		<label>Fname</label>
+		<input type="text"><br><br>
+		
+		<label>Lname</label>
+		<input type="text"><br><br>
+		
+		<label>Password</label>
+		<input type="Password"><br><br>
+		
+		<label>C-password</label>
+		<input type="Password"><br><br>
+		
+		<button class="btn">Signup</button>
+		<button class="cbtn">Cancel</button>
+	
+		<form>
+		</center>
+		</div>
+		<script src="D:\sem4\wd2\vruu\jquery-jquery-f79d5f1\dist\jquery.min.js"></script>
+				
+				<script>
+				$(document).ready(function()
+				{
+					$('.btn').click(function()
+					{
+						alert("thank you for sign-up");
+					});
+				});
+				</script>
+		</body>
+		
+</html>

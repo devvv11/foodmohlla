@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Burger King India| online ordering</title>
+</head>
+<body>
+    <header><img src="logo.png"class="logo"><h1>The Burger King</h1>
+        <nav>
+    <ul>
+        <li><a href="burger king.html">Home</a></li>
+        
+        <li><a href="About Us.html">About</a></li>
+        <li><a href="login.html">login</a></li>
+    </ul>
+    </nav>
+    </header>
+	<div class="con">
+        <button type="button" class="button">Get</button>
+        <table id="table">
+          <tr>
+              <th>Name</th>
+              <th>type</th>
+              <th>calories</th>
+          </tr>
+      </table>
+    </div>
+	
+    <footer><center><h4>All rigth Goes To Dev</h4><center></centre></footer>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $(".button").click(function (){
+        $.get("x.xml", function (data){
+            $(data).find("food").each(function (index,p) {
+                var name = $(this).find("name").text();
+                var id = $(this).find("type").text();
+                var course = $(this).find("calories").text();
+
+                var row = "<tr><td>" + name + "</td><td>" + id + "</td><td>" + course + "</td></tr>";
+                $("#table").append(row);
+            });
+        });
+    });
+});</script>
+</body>
+</html>

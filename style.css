@@ -1,0 +1,164 @@
+*{
+    padding:  0;
+    margin: 0;
+}
+
+body{
+background-color: #FBA1B7;
+}
+
+header{
+    display: flex;
+    height: 45px;
+    background-color: white;
+    font-family:URW Chancery L, cursive;
+    justify-content: space-evenly;
+	list-style: none;
+}
+
+nav ul
+{
+    display: flex;
+    list-style: none;
+    gap: 55px;
+	margin-top: 10px;
+}
+
+.con{
+  display: flex;
+
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+  .con .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(82, 82, 82);
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    top: 85%;
+	transition: 0.3s;
+  }
+  
+  .con .btn:hover {
+    background-color: white;
+	color: black;
+  }
+
+  footer
+  {
+    background-color: white;
+  }
+  
+  .box
+{
+    height: 370px;
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px 10px 10px;
+    justify-content: space-evenly;
+    background-color: #FFD1DA;
+    border-radius: 10px;
+   
+}
+
+.box img
+{
+    height: 50%;
+    width: 50%;
+	
+}
+
+.button {
+
+    width: 8em;
+    height: 2em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+	transition: 0.3s;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+   }   
+   .button:hover{
+	   background-color: white;
+	   
+   }
+   .button::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #f00 0%, #f00 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .button:hover::before {
+    width: 10em;
+   }
+
+   .bc
+   {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   }
+   .fk
+   {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family:Papyrus;
+   }
+   .fk p
+   {
+        font-weight: 500;
+        font-size: 20px;
+   }
+   table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    border: 2px solid white;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #daf34b;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #45f445;
+  }
+  
+  th {
+    background-color: #65e753;
+    color: white;
+  }

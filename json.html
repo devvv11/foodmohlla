@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Burger King India| online ordering</title>
+</head>
+<body>
+    <header><img src="logo.png"class="logo"><h1>The Burger King</h1>
+        <nav>
+    <ul>
+        <li><a href="burger king.html">Home</a></li>
+        
+        <li><a href="About Us.html">About</a></li>
+        <li><a href="login.html">login</a></li>
+    </ul>
+    </nav>
+    </header>
+	<div class="con">
+        <button type="button" class="button">Get</button>
+        <table id="table">
+          <tr>
+              <th>Name</th>
+              <th>type</th>
+              <th>calories</th>
+          </tr>
+      </table>
+    </div>
+	
+    <footer><center><h4>All rigth Goes To Dev</h4><center></centre></footer>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+         $(document).ready(function() {
+      
+      $.getJSON("j.json", function(data) {
+        $("button").click(function(){
+
+        
+        var tableBody = $("#table");
+
+        
+        $.each(data, function(index, person) {
+          var row = $("<tr></tr>"); 
+
+          
+          row.append($("<td></td>").text(person.name));
+          row.append($("<td></td>").text(person.type));
+          row.append($("<td></td>").text(person.calories));
+         
+
+          tableBody.append(row); 
+        });
+        });
+      });
+    });
+</script>
+</body>
+</html>
